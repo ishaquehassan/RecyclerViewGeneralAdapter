@@ -1,5 +1,58 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+ext {
+    bintrayRepo = 'RecyclerViewGeneralAdapter'
+    bintrayName = 'RecyclerViewGeneralAdapter'
+
+    publishedGroupId = 'com.ishaquehassan'
+    libraryName = 'RecyclerViewGeneralAdapter'
+    artifact = 'recyclerviewgeneraladapter'
+
+    libraryDescription = 'A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType.'
+
+    siteUrl = 'https://github.com/ishaquehassan/RecyclerViewGeneralAdapter'
+    gitUrl = 'https://github.com/ishaquehassan/RecyclerViewGeneralAdapter.git'
+
+    libraryVersion = '0.1.0'
+
+    developerId = 'ishaquehassa'
+    developerName = 'Ishaq Hassan'
+    developerEmail = 'ishaquehassan@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+/*publish {
+
+    def groupProjectID = 'com.ishaquehassan.recyclerviewgeneraladapter'
+    def artifactProjectID = 'recyclerviewgeneraladapter'
+    def publishVersionID = '1.0'
+
+    userOrg = 'ishaquehassan'
+    repoName = 'RecyclerGeneralAdapter'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType.'
+    website = 'https://github.com/ishaquehassan/RecyclerViewGeneralAdapter'
+
+}*/
 
 android {
     compileSdkVersion 28
@@ -27,3 +80,12 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
+//Add these lines to publish library to bintray
+//Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
