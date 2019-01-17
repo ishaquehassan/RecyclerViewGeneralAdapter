@@ -38,22 +38,6 @@ ext {
     allLicenses = ["Apache-2.0"]
 }
 
-/*publish {
-
-    def groupProjectID = 'com.ishaquehassan.recyclerviewgeneraladapter'
-    def artifactProjectID = 'recyclerviewgeneraladapter'
-    def publishVersionID = '1.0'
-
-    userOrg = 'ishaquehassan'
-    repoName = 'RecyclerGeneralAdapter'
-    groupId = groupProjectID
-    artifactId = artifactProjectID
-    publishVersion = publishVersionID
-    desc = 'A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType.'
-    website = 'https://github.com/ishaquehassan/RecyclerViewGeneralAdapter'
-
-}*/
-
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -85,7 +69,5 @@ tasks.withType(Javadoc).all {
     enabled = false
 }
 
-//Add these lines to publish library to bintray
-//Place it at the end of the file
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
 apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
