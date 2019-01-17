@@ -3,7 +3,7 @@ A RecyclerView Adapter for general purpose simple lists. It supports all common 
 
 ### Installation
 ```groovy
-implementaion 'com.ishaquehassan.recyclerviewgeneraladapter:0.1.0'
+implementaion 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.0'
 ```
 
 ### Simple Usage
@@ -49,3 +49,5 @@ yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
     itemView.findViewById<TextView>(R.id.item_title_tv).text = itemData.title
 }
 ```
+
+
