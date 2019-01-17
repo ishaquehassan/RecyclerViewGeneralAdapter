@@ -1,4 +1,4 @@
-# RecyclerViewGeneralAdapter
+# RecyclerViewGeneralAdapter [![Download](https://api.bintray.com/packages/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter/images/download.svg)](https://bintray.com/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter)
 A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType.
 
 ### Installation
