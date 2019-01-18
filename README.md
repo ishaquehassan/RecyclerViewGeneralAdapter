@@ -46,7 +46,6 @@ RecyclerGeneralTypeAdapter(
 ```
 
 ### Simple Usage
-##### Get RecyclerView Instance
 ```kotlin
 // find recyclerView
 val myRecyclerList = findViewById<RecyclerView>(R.id.myRecyclerListId)
