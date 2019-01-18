@@ -1,38 +1,107 @@
 # RecyclerViewGeneralAdapter [![Download](https://api.bintray.com/packages/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter/images/download.svg)](https://bintray.com/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter)
-A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType.
+A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType. This adapter let you create any type of list using RecyclerView without creating a actual adapter class like we used to with default ArrayAdapter ut with custom data / View handling.
 
-### Installation
+## Installation
 ```groovy
-implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.1'
+implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.2'
+```
+
+### There are two constructors for this adapter
+**Without itemViewType**
+```kotlin
+RecyclerGeneralTypeAdapter(
+    // pass your data as list or any type of array / collection
+    data:ArrayList<T>,
+
+    // set your layout file resource like (R.layout.my_list_item_view)
+    layoutFile: Int,
+
+    // finally pass a callback function as bindViewholder which gives you 2 inputs
+    // 1. Your item data for current item,
+    // 2. Your viewHolder ref of current item
+    onBindItem:(itemData:T,viewHolder:RecyclerViewGeneralAdapter<T>.RecyclerGeneralViewHolder)->Unit
+)
+```
+**With itemViewType**
+```kotlin
+RecyclerGeneralTypeAdapter(
+    // pass your data as list or any type of array / collection
+    data:ArrayList<T>,
+
+    // map of your layoutfiles with key as their ViewType like
+    // mapOf(1 to R.layout.view_type_one, ... and so on)
+    val layoutFiles:Map<Int,Int>,
+
+    // Here you can pass a call back to decide which itemViewType should be rendered & it gives you 2 inputs for that
+    // 1. Position of the current item
+    // 2. Data of current item to decide with
+    // in response you should return am int which should be one of the keys of your map which you'd defined above
+    val onGetViewType:(position:Int, itemData:T)->Int
+
+    // finally pass a callback function as bindViewholder which gives you 2 inputs
+    // 1. Your item data for current item,
+    // 2. Your viewHolder ref of current item
+    onBindItem:(itemData:T,viewHolder:RecyclerViewGeneralAdapter<T>.RecyclerGeneralViewHolder)->Unit
+)
 ```
 
 ### Simple Usage
+##### Get RecyclerView Instance
 ```kotlin
-data class ItemModel(val title:String)
+// find recyclerView
+val myRecyclerList = findViewById<RecyclerView>(R.id.myRecyclerListId)
 
-//Simple Usage without ViewType
-yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
-    arrayListOf(ItemModel("Item 1"),ItemModel("Item 2")),
+//Set its layout manager (Linear/Grid or any other)
+myRecyclerList.layoutManager = LinearLayoutManager(this)
+
+//Now just set the adapter like this
+myRecyclerList.adapter = RecyclerGeneralTypeAdapter(
+
+    // Data (In this example its string but you can use any type)
+    arrayListOf("Item 1","Item 2","Item 3"),
+
+    //Set the layout for your item
     R.layout.your_item_layout
-){ itemData,viewHolder ->
+
+)
+
+//Finally attach the bindViewHolder callback
+{ itemData,viewHolder ->
+    // your item view instance for this item
     val itemView = viewHolder.itemView
+
+    // your adapter position for this item
     val position = viewHolder.adapterPosition
-    itemView.findViewById<TextView>(R.id.item_title_tv).text = itemData.title
+    itemView.findViewById<TextView>(R.id.item_title_tv).text = itemData
 }
 ```
 
 ### Advance Usage
 ```kotlin
+// Sample data class
 data class ItemModel(val title:String)
 
-/Adavanced Usage with ViewType
+// find recyclerView
+val myRecyclerList = findViewById<RecyclerView>(R.id.myRecyclerListId)
+
+//Set its layout manager (Linear/Grid or any other)
+myRecyclerList.layoutManager = LinearLayoutManager(this)
+
+//Adavanced Usage with ViewType
 yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
+
+    // Data (In this example its string but you can use any type)
     arrayListOf(ItemModel("Item 1"),ItemModel("Item 2")),
+
+    // map of your layoutfiles with key as their ViewType
     mapOf(
-        // Key = ViewTypw , Value = Layout Resource File
+        // Key = ViewType , Value = Layout Resource File
         1 to R.layout.your_item_layout_1,
         2 to R.layout.your_item_layout_2
-    ),{position,itemData ->
+    ),
+
+    // Decide which laout should be rendered on which position
+    {position,itemData ->
 
         //ViewType Decision on basis of item data
         if(itemData.title == "Item 1"){1}
@@ -43,11 +112,36 @@ yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
         //Default ViewType should be returned too
         else {1}
     }
-){ itemData,viewHolder ->
+)
+
+//Finally attach the bindViewHolder callback
+{ itemData,viewHolder ->
     val itemView = viewHolder.itemView
     val position = viewHolder.adapterPosition
     itemView.findViewById<TextView>(R.id.item_title_tv).text = itemData.title
 }
 ```
 
+##  How to Contribute
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Add some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
 
+
+## License
+
+    Copyright 2019 Ishaq Hassan
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
