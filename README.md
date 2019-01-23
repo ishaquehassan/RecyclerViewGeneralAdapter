@@ -131,7 +131,7 @@ adapterInstance.add(ItemModel("new item"))
 adapterInstance.remove(position)
 
 // To update item, just pass your index/position & data. Adapter will be automatically updated
-adapterInstance.remove(position,ItemModel("new item updated"))
+adapterInstance.update(position,ItemModel("new item updated"))
 ```
 
 ##  How to Contribute
