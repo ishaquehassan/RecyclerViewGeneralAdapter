@@ -3,7 +3,7 @@ A RecyclerView Adapter for general purpose simple lists. It supports all common 
 
 ## Installation
 ```groovy
-implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.3'
+implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.4'
 ```
 
 ### There are two constructors for this adapter
@@ -119,6 +119,19 @@ yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
     val position = viewHolder.adapterPosition
     itemView.findViewById<TextView>(R.id.item_title_tv).text = itemData.title
 }
+```
+
+### Additional Features
+```kotlin
+
+// To add item, just pass your data. Adapter will be automatically updated
+adapterInstance.add(ItemModel("new item"))
+
+// To remove item, just pass your index/position. Adapter will be automatically updated
+adapterInstance.remove(position)
+
+// To update item, just pass your index/position & data. Adapter will be automatically updated
+adapterInstance.remove(position,ItemModel("new item updated"))
 ```
 
 ##  How to Contribute
