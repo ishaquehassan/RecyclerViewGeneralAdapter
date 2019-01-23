@@ -21,5 +21,17 @@ class RecyclerViewGeneralAdapter<T>(val data:ArrayList<T>, private val layoutFil
     override fun onBindViewHolder(holder: RecyclerGeneralViewHolder, position: Int) =  onBindItem(data[position],holder)
     override fun getItemViewType(position: Int): Int = onGetViewType(position,data[position])
     inner class RecyclerGeneralViewHolder(v:View) : RecyclerView.ViewHolder(v)
+    fun add(item:T){
+        data.add(item)
+        notifyItemInserted(data.size-1)
+    }
+    fun remove(position: Int){
+        data.removeAt(position)
+        notifyItemRemoved(position)
+    }
+    fun update(position: Int,item: T){
+        data.set(position,item)
+        notifyItemChanged(position)
+    }
 }
 
