@@ -124,13 +124,13 @@ yourRecyclerViewInstance.adapter = RecyclerGeneralTypeAdapter(
 ### Additional Features
 ```kotlin
 
-// To add item, just pass your data. Adapter will be automatically updated
+// To add item, just pass your data. View will be automatically updated
 adapterInstance.add(ItemModel("new item"))
 
-// To remove item, just pass your index/position. Adapter will be automatically updated
+// To remove item, just pass your index/position. View will be automatically updated
 adapterInstance.remove(position)
 
-// To update item, just pass your index/position & data. Adapter will be automatically updated
+// To update item, just pass your index/position & data. View will be automatically updated
 adapterInstance.update(position,ItemModel("new item updated"))
 ```
 
