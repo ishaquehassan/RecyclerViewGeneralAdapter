@@ -3,7 +3,7 @@ A RecyclerView Adapter for general purpose simple lists. It supports all common 
 
 ## Installation
 ```groovy
-implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.2'
+implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.3'
 ```
 
 ### There are two constructors for this adapter
