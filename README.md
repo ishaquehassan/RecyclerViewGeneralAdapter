@@ -1,6 +1,8 @@
 # RecyclerViewGeneralAdapter [![Download](https://api.bintray.com/packages/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter/images/download.svg)](https://bintray.com/ishaquehassan/RecyclerViewGeneralAdapter/com.ishaquehassan.recyclerviewgeneraladapter)
 A RecyclerView Adapter for general purpose simple lists. It supports all common features including itemViewType. This adapter let you create any type of list using RecyclerView without creating a actual adapter class like we used to with default ArrayAdapter ut with custom data / View handling.
 
+#### [Check out Sample Project !](https://github.com/ishaquehassan/RecyclerViewGeneralAdapterSample)
+
 ## Installation
 ```groovy
 implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.5'
