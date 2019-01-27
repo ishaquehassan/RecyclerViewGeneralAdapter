@@ -3,7 +3,7 @@ A RecyclerView Adapter for general purpose simple lists. It supports all common 
 
 ## Installation
 ```groovy
-implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.4'
+implementation 'com.ishaquehassan:recyclerviewgeneraladapter:0.1.5'
 ```
 
 ### There are two constructors for this adapter
@@ -132,6 +132,9 @@ adapterInstance.remove(position)
 
 // To update item, just pass your index/position & data. View will be automatically updated
 adapterInstance.update(position,ItemModel("new item updated"))
+
+//Add list item divider
+yourRecyclerViewInstance.addListDivider()
 ```
 
 ##  How to Contribute
