@@ -3,7 +3,7 @@ A RecyclerView Adapter for general purpose simple lists. It supports all common 
 
 #### [Check out Sample Project !](https://github.com/ishaquehassan/RecyclerViewGeneralAdapterSample)
 
-![Screenshot 1](https://raw.githubusercontent.com/ishaquehassan/RecyclerViewGeneralAdapter/master/images/sc_1.png =250x)
+![Screenshot 1](https://raw.githubusercontent.com/ishaquehassan/RecyclerViewGeneralAdapter/master/images/sc_1.png)
 
 ## Installation
 ```groovy
