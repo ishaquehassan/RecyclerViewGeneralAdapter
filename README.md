@@ -141,6 +141,73 @@ adapterInstance.update(position,ItemModel("new item updated"))
 yourRecyclerViewInstance.addListDivider()
 ```
 
+## Complete Sample
+
+#### activity_main.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SimpleListActivity">
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/mySimpleList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+</android.support.constraint.ConstraintLayout>
+```
+
+#### MainActivity.kt
+```kotlin
+//Model class for each item
+private data class SimpleItemModel(val name:String,val releaseYear:String)
+
+//Declaring list for list to render
+private lateinit var simpleData:ArrayList<SimpleItemModel>
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    setContentView(R.layout.activity_main)
+
+    //Initialized data list with sample data
+    simpleData = arrayListOf(
+        SimpleItemModel("The Shawshank Redemption","1994"),
+        SimpleItemModel("The Godfather","1972"),
+        SimpleItemModel("The Godfather: Part II","1974"),
+        SimpleItemModel("The Dark Knight ","2008"),
+        SimpleItemModel("12 Angry Men","1957"),
+        SimpleItemModel("Schindler's List","1993"),
+        SimpleItemModel("The Shawshank Redemption","1994"),
+        SimpleItemModel("The Godfather","1972"),
+        SimpleItemModel("The Godfather: Part II","1974"),
+        SimpleItemModel("The Dark Knight ","2008"),
+        SimpleItemModel("12 Angry Men","1957"),
+        SimpleItemModel("Schindler's List","1993")
+    )
+
+    mySimpleList.layoutManager = LinearLayoutManager(this)
+
+    //Added list divider in just a simple call to this method
+    mySimpleList.addListDivider()
+
+    //Here we can just create & set the adapter in few lines
+    mySimpleList.adapter = RecyclerViewGeneralAdapter(
+        simpleData,R.layout.simple_list_item
+    ) {itemData, viewHolder ->
+        val mainView = viewHolder.itemView
+        val nameTv = mainView.findViewById<TextView>(R.id.simple_name_tv)
+        val yearTv = mainView.findViewById<TextView>(R.id.simple_year_tv)
+
+        nameTv.text = itemData.name
+        yearTv.text = itemData.releaseYear
+    }
+}
+```
+
 ##  How to Contribute
 1. Fork it
 2. Create your feature branch (git checkout -b my-new-feature)
