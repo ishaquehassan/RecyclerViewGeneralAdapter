@@ -161,6 +161,35 @@ yourRecyclerViewInstance.addListDivider()
 </android.support.constraint.ConstraintLayout>
 ```
 
+#### simple_list_item.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+    <TextView
+            android:id="@+id/simple_name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Movie Title"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"/>
+
+    <TextView
+            android:id="@+id/simple_year_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Movie Year"
+            android:textSize="16sp" />
+</LinearLayout>
+```
+
 #### MainActivity.kt
 ```kotlin
 class MainActivity : AppCompatActivity() {
