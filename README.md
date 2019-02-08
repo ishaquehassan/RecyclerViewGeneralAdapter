@@ -141,7 +141,7 @@ adapterInstance.update(position,ItemModel("new item updated"))
 yourRecyclerViewInstance.addListDivider()
 ```
 
-## Complete Sample
+## Complete Sample (Simple List without viewType)
 
 #### activity_main.xml
 ```xml
